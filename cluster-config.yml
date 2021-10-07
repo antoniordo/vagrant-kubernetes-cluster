@@ -1,0 +1,8 @@
+master:
+  cpus: 2
+  memory: 2048
+  token: w7q3gm.phjqo1jqh9n6hsxx
+nodes:
+  cpus: 4
+  memory: 2048
+  count: 2
