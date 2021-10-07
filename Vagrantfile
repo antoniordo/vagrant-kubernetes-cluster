@@ -27,7 +27,7 @@ Vagrant.configure("2") do |config|
         master.vm.hostname = "kube-master"
         master.vm.provision "shell", path: "configure-host.sh", privileged: false, env: {"MACHINE_IP" => master_ip}
         master.vm.provision "shell", path: "configure-master.sh", privileged: false, env: {"K8S_TOKEN" => cluster_token, "MACHINE_IP" => master_ip, "KUBE_INIT_EXTRA_ARGS" => "--pod-network-cidr=#{network_base_ip}.0/16"}
-        master.vm.provision "inline", path: "echo 'source <(kubectl completion bash)' >> ~/.bashrc", privileged: false
+        master.vm.provision "shell", inline: "echo 'source <(kubectl completion bash)' >> ~/.bashrc", privileged: false
 
     end
 
